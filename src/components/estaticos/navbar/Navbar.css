@@ -6,3 +6,7 @@
 .text-decorator-none {
     text-decoration: none;
 }
+
+.backColor{
+    background: linear-gradient(36deg, #44bd32 30%, #40739e, 80%) !important;
+}

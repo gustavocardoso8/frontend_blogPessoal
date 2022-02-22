@@ -1,11 +1,11 @@
 /* eslint-disable eqeqeq */
-import { Box, Grid, TextField, Typography, Button } from "@material-ui/core";
+import { Box, Grid, TextField, Typography, Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import User from "../../models/User";
+import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service'
-import React, { useState, useEffect, ChangeEvent } from "react";
-import { Link } from "react-router-dom";
-import'./CadastroUsuario.css';
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import { Link } from 'react-router-dom';
+import './CadastroUsuario.css';
 
 function CadastroUsuario() {
 
@@ -29,7 +29,7 @@ function CadastroUsuario() {
 
     useEffect(() => {
         if (userResult.id != 0) {
-            history.push("/login")
+            history.push('/login')
             console.log(userResult)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -83,7 +83,7 @@ function CadastroUsuario() {
                             name='usuario'
                             margin='normal'
                             fullWidth
-                            placeholder="Insira um e-mail válido"
+                            placeholder='Insira um e-mail válido'
                         />
                         <TextField
                             value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
@@ -94,7 +94,7 @@ function CadastroUsuario() {
                             margin='normal'
                             type='password'
                             fullWidth
-                            placeholder="Mínimo de 8 caracteres"
+                            placeholder='Mínimo de 8 caracteres'
                             required
                         />
                         <TextField
@@ -106,7 +106,7 @@ function CadastroUsuario() {
                             margin='normal'
                             type='password'
                             fullWidth
-                            placeholder="As senhas devem ser idênticas"
+                            placeholder='As senhas devem ser idênticas'
                             required
                         />
                         <Box marginTop={2} textAlign='center'>

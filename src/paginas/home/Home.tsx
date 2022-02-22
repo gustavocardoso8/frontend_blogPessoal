@@ -1,5 +1,6 @@
 import { Grid, Box, Typography, Button } from '@material-ui/core';
 import React from 'react';
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import './Home.css';
 
 function Home () {
@@ -20,7 +21,9 @@ function Home () {
                 <Grid item xs={6}>
                 <img src='https://i.imgur.com/LF5mjWY.jpg' alt='Minha capa do LinkedIn' width='683px' height='200px'/>
                 </Grid>
-                <Grid xs={12} className='postagens'>                   
+                <Grid xs={12} className='postagens'>     
+                    <TabPostagem />
+                                  
                 </Grid>
         </Grid>
         </>

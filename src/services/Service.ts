@@ -4,12 +4,12 @@ export const api = axios.create({
     baseURL: 'https://gustaverso.herokuapp.com'
 })
 // model de cadastro de usuário
-    export const cadastroUsuario = async(url: any, dados: any, setDado: any) => {
+    export const cadastroUsuario = async(url: any, dados: any, setDados: any) => {
         const resposta = await api.post(url, dados)
-        setDado(resposta.data)
+        setDados(resposta.data)
     }
 // model de login de usuário
-    export const login = async(url: any, dados: any, setDado: any) => {
+    export const login = async(url: any, dados: any, setDados: any) => {
         const resposta = await api.post(url, dados)
-        setDado(resposta.data.token)
+        setDados(resposta.data.token)
     }

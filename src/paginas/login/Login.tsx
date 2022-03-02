@@ -26,11 +26,9 @@ function Login() {
     }
 
         useEffect(() =>{
-            // eslint-disable-next-line eqeqeq
             if(token != ''){
                 history.push('/home')
             }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [token])
 
     async function onSubmit (e: ChangeEvent<HTMLFormElement>) {

@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import { Box, Grid, TextField, Typography, Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import User from '../../models/User';
@@ -32,7 +31,6 @@ function CadastroUsuario() {
             history.push('/login')
             console.log(userResult)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userResult])
 
 

@@ -1,22 +1,31 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
-import useLocalStorage from "react-use-localstorage";
-
 import './Navbar.css'
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/action";
 
 function Navbar () {
-    const [token, setToken] = useLocalStorage('token');
     let history = useHistory();
 
+    const token = useSelector< TokenState, TokenState ['tokens'] > (
+        ( state ) => state.tokens
+    )
+
+    const dispatch = useDispatch();
+
     function goLogout() {
-        setToken('')
+        dispatch(addToken(''))
         alert('Desconectado com sucesso.')
         history.push('/login')
     }
-    return (
-        <>
-            <AppBar position='static'>
+
+    var navbarComponent;
+
+    if (token !== '') {
+        navbarComponent =
+        <AppBar position='static'>
                 <Toolbar variant='dense'>
                     <Box className='cursor'>
                         <Typography variant='h6' color='inherit'>
@@ -64,6 +73,12 @@ function Navbar () {
                     </Box>
                 </Toolbar>
             </AppBar>
+    }
+
+
+    return (
+        <>
+            { navbarComponent }
         </>
     )
 }

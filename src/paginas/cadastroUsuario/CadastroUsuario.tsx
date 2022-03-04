@@ -53,7 +53,7 @@ function CadastroUsuario() {
         if(confirmarSenha == user.senha && user.senha.length >= 8){
         cadastroUsuario(`/usuario/cadastrar`, user, setUserResult)
         toast.success('Usuário cadastrado com sucesso. Agora, faça login para continuar', {
-            position: 'top-right',
+            position: 'top-left',
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -64,8 +64,8 @@ function CadastroUsuario() {
         });
         } else 
             toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.', {
-                position: 'top-right',
-                autoClose: 2000,
+                position: 'top-left',
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

@@ -21,7 +21,7 @@ function DeletarTema() {
         if (token === "") {
             toast.error('Para continuar, é preciso estar logado.', {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -57,7 +57,7 @@ function DeletarTema() {
             });
             toast.success('Tema excluído.', {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

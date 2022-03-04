@@ -24,7 +24,7 @@ function CadastroTema() {
         if(token === '') {
             toast.error('Opa! Para continuar, é preciso estar logado.', {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -68,7 +68,7 @@ function CadastroTema() {
             })
             toast.success('Legal! Tema atualizado :)', {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -84,7 +84,7 @@ function CadastroTema() {
             })
             toast.success('Pronto. Tema cadastrado ^.^', {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

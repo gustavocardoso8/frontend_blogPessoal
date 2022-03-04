@@ -20,7 +20,7 @@ function Home () {
         if (token === '') {
             toast.error('Você precisa fazer login para continuar', {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

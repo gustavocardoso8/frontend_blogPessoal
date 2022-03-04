@@ -42,7 +42,7 @@ function Login() {
             await login(`/usuario/logar`, userLogin, setToken)
             toast.success('Usuário logado com sucesso', {
                 position: 'top-right',
-                autoClose: 2000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -53,10 +53,10 @@ function Login() {
         }catch(error){
             toast.error('Usuário e/ou senha incorretos. Tente novamente', {
             position: 'top-right',
-            autoClose: 2000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             theme: 'colored',
             progress: undefined

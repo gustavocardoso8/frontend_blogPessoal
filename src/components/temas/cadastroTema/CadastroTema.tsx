@@ -6,6 +6,7 @@ import Tema from "../../../models/Tema";
 import { buscaId, post, put } from "../../../services/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 
 function CadastroTema() {
@@ -21,8 +22,16 @@ function CadastroTema() {
 
     useEffect(() => {
         if(token === '') {
-            alert('Para continuar, você precisa estar logado.')
-            history.push('/login')
+            toast.error('Opa! Para continuar, é preciso estar logado.', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined
+            });            history.push('/login')
         }
     }, [token])
 
@@ -57,14 +66,32 @@ function CadastroTema() {
                     'Authorization': token
                 }
             })
-            alert('Tema atualizado com sucesso');
+            toast.success('Legal! Tema atualizado :)', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined
+            });
         } else {
             post(`/tema`, tema, setTema, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Tema cadastrado com sucesso');
+            toast.success('Pronto. Tema cadastrado ^.^', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined
+            });
         }
         back()
 

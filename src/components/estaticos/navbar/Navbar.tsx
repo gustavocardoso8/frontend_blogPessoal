@@ -5,6 +5,7 @@ import './Navbar.css'
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import { addToken } from "../../../store/tokens/action";
+import { toast } from 'react-toastify'; // para notificações personalizadas
 
 function Navbar () {
     let history = useHistory();
@@ -17,7 +18,16 @@ function Navbar () {
 
     function goLogout() {
         dispatch(addToken(''))
-        alert('Desconectado com sucesso.')
+        toast.info('Desconectado com sucesso.', {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            theme: 'colored',
+            progress: undefined
+        });
         history.push('/login')
     }
 

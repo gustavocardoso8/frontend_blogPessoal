@@ -6,6 +6,7 @@ import { buscaId, deleteId } from '../../../services/Service';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarPostagem() {
   let history = useHistory();
@@ -17,7 +18,16 @@ function DeletarPostagem() {
 
   useEffect(() => {
       if (token === "") {
-          alert("Você precisa estar logado")
+        toast.error('Para continuar, é preciso estar logado.', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          theme: 'colored',
+          progress: undefined
+      });
           history.push("/login")
   
       }
@@ -44,7 +54,16 @@ function DeletarPostagem() {
             'Authorization': token
           }
         });
-        alert('Post deletado com sucesso');
+        toast.success('Postagem excluída com sucesso', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          theme: 'colored',
+          progress: undefined
+      });
       }
     
       function nao() {

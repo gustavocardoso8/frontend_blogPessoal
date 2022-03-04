@@ -5,6 +5,7 @@ import { cadastroUsuario } from '../../services/Service'
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
 
@@ -51,12 +52,30 @@ function CadastroUsuario() {
         e.preventDefault()
         if(confirmarSenha == user.senha && user.senha.length >= 8){
         cadastroUsuario(`/usuario/cadastrar`, user, setUserResult)
-        alert('Usuário cadastrado com sucesso')
-        }else{
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
-        }
+        toast.success('Usuário cadastrado com sucesso. Agora, faça login para continuar', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            theme: 'colored',
+            progress: undefined
+        });
+        } else 
+            toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined
+            });
+        
     }
-    return(
+    return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='imagem2'></Grid>
                 <Grid item xs={6} alignItems='center'>
@@ -124,6 +143,6 @@ function CadastroUsuario() {
 
         </Grid>
     );
-}
+    }
 
 export default CadastroUsuario

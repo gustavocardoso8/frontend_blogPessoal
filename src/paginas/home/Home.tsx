@@ -2,6 +2,7 @@ import { Grid, Box, Typography, Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import { TokenState } from '../../store/tokens/tokensReducer';
@@ -17,7 +18,16 @@ function Home () {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa fazer login para continuar')
+            toast.error('Você precisa fazer login para continuar', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: 'colored',
+                progress: undefined
+            });
             history.push('/login')
 
         }

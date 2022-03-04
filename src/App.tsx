@@ -38,10 +38,10 @@ function App() {
         <Route path='/cadastrousuario'>
           <CadastroUsuario />
         </Route>
-        <Route path='/temas'>
+        <Route path='/tema'>
           <ListaTema />
         </Route>
-        <Route path='/posts'>
+        <Route path='/postagem'>
           <ListaPostagem />
         </Route>
         <Route exact path='/formularioPostagem'>

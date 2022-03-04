@@ -44,7 +44,7 @@ function Home () {
                     <Box marginRight={1}>
                         <ModalPostagem />
                     </Box>
-                    <Link to ='/posts' className='decoracao'>
+                    <Link to ='/postagem' className='decoracao'>
                         <Button variant='outlined' className='botao'>Ver Postagens</Button>
                     </Link>
                     </Box>

@@ -8,22 +8,20 @@ import { addToken } from "../../../store/tokens/action";
 import { toast } from 'react-toastify'; // para notificações personalizadas
 
 function Navbar () {
-    let history = useHistory();
-
     const token = useSelector< TokenState, TokenState ['tokens'] > (
         ( state ) => state.tokens
     )
-
+    let history = useHistory();
     const dispatch = useDispatch();
 
     function goLogout() {
-        dispatch(addToken(''))
-        toast.info('Desconectado com sucesso.', {
+        dispatch(addToken(''));
+        toast.info('Desconectado com sucesso', {
             position: 'top-right',
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             theme: 'colored',
             progress: undefined
@@ -51,14 +49,14 @@ function Navbar () {
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to='/posts' className='text-decorator-none'>
+                        <Link to='/postagem' className='text-decorator-none'>
                             <Box mx={1} className='cursor'>
                                 <Typography variant='h6' color='inherit'>
                                     Postagens
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to='/temas' className='text-decorator-none'>
+                        <Link to='/tema' className='text-decorator-none'>
                             <Box mx={1} className='cursor'>
                                 <Typography variant='h6' color='inherit'>
                                     Temas
@@ -90,7 +88,7 @@ function Navbar () {
         <>
             { navbarComponent }
         </>
-    )
+    );
 }
 
 export default Navbar;

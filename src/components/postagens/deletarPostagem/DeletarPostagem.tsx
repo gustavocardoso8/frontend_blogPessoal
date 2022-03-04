@@ -13,7 +13,7 @@ function DeletarPostagem() {
   const { id } = useParams<{id: string}>();
   const token = useSelector<TokenState, TokenState['tokens']>(
     (state) => state.tokens
-)
+);
   const [post, setPosts] = useState<Postagem>()
 
   useEffect(() => {
@@ -48,18 +48,18 @@ function DeletarPostagem() {
       }
 
       function sim() {
-        history.push('/posts')
+        history.push('/postagem')
         deleteId(`/postagem/${id}`, {
           headers: {
             'Authorization': token
-          }
+            }
         });
         toast.success('Postagem excluída com sucesso', {
           position: 'top-right',
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
+          pauseOnHover: false,
           draggable: false,
           theme: 'colored',
           progress: undefined
@@ -67,7 +67,7 @@ function DeletarPostagem() {
       }
     
       function nao() {
-        history.push('/posts')
+        history.push('/postagem')
       }
    
   return (
@@ -88,7 +88,7 @@ function DeletarPostagem() {
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
               <Box mx={2}>
-              <Button onClick={sim} variant="contained" size='large' color="primary">
+              <Button onClick={sim} variant="contained" className='marginLeft' size='large' color="primary">
                 Sim
               </Button>
               </Box>

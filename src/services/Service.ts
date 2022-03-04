@@ -35,5 +35,5 @@ export const api = axios.create({
     }
 // deletar postagem
     export const deleteId = async(url: any, header: any) => {
-        await api.put(url, header)
+        await api.delete(url, header)
     }

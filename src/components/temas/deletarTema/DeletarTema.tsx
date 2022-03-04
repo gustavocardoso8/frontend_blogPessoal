@@ -24,7 +24,7 @@ function DeletarTema() {
                 autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true,
+                pauseOnHover: false,
                 draggable: false,
                 theme: 'colored',
                 progress: undefined
@@ -49,7 +49,7 @@ function DeletarTema() {
         }
 
         function sim() {
-            history.push('/temas')
+            history.push('/tema')
             deleteId(`/tema/${id}`, {
               headers: {
                 'Authorization': token
@@ -60,7 +60,7 @@ function DeletarTema() {
                 autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true,
+                pauseOnHover: false,
                 draggable: false,
                 theme: 'colored',
                 progress: undefined
@@ -68,7 +68,7 @@ function DeletarTema() {
           }
         
           function nao() {
-            history.push('/temas')
+            history.push('/tema')
           }
           
   return (
@@ -86,7 +86,7 @@ function DeletarTema() {
                         </Box>
                     </CardContent>
                     <CardActions>
-                        <Box display='flex' justifyContent='start' ml={1.0} mb={2}>
+                        <Box display='flex' justifyContent='start' ml={1.0} mb={2} >
                             <Box mx={2}>
                                 <Button onClick={sim} variant='contained' size='large' color='primary'>
                                     Sim

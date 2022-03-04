@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Box, Card, CardActions, CardContent, Button, Typography} from '@material-ui/core'
 import Tema from '../../../models/Tema'
@@ -9,30 +10,30 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
 function ListaTema() {
-    const [tema, setTema] = useState<Tema[]>([])
+    const [temas, setTemas] = useState<Tema[]>([])
     const token = useSelector<TokenState, TokenState['tokens']>(
         (state) => state.tokens
-    )
+    );
     let history = useHistory();
 
-    useEffect(() => {
+    useEffect(()=>{
         if(token === ''){
-            toast.error('Para continuar, é preciso estar logado.', {
-                position: 'top-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: false,
-                theme: 'colored',
-                progress: undefined
-            });
-        history.push('/login')
+          toast.error('Você precisa estar logado', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+          });
+          history.push("/login")
         }
-    }, [token])
+      }, [token])
 
     async function getTema(){
-        await busca('/tema', setTema, {
+        await busca('/tema', setTemas, {
             headers: {
                 'Authorization': token
             }
@@ -41,12 +42,12 @@ function ListaTema() {
 
     useEffect(() => {
         getTema()
-    }, [tema.length])
+    }, [temas.length])
 
     return (
         <>
         {
-            tema.map(tema => (
+            temas.map(tema => (
             <Box m={2}>
                 <Card variant='outlined'>
                     <CardContent>
@@ -66,7 +67,7 @@ function ListaTema() {
                                     </Button>
                                 </Box>
                             </Link>
-                            <Link to={`deletarTema/${tema.id}`} className='text-decorator-none'>
+                            <Link to={`/deletarTema/${tema.id}`} className='text-decorator-none'>
                                 <Box mx={1}>
                                     <Button variant='contained' size='small' color='secondary'>
                                         Deletar

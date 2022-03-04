@@ -13,7 +13,7 @@ function CadastroPost() {
 
     let history = useHistory();
     const {id} = useParams<{id: string}> ();
-    const [tema, setTema] = useState<Tema[]>([])
+    const [temas, setTemas] = useState<Tema[]>([])
     const token = useSelector<TokenState, TokenState['tokens']>(
         (state) => state.tokens
     )
@@ -34,7 +34,7 @@ function CadastroPost() {
         }
     }, [token])
 
-    const [temas, setTemas] = useState<Tema>(
+    const [tema, setTema] = useState<Tema>(
         {
             id: 0,
             descricao: ''
@@ -49,7 +49,7 @@ function CadastroPost() {
     useEffect(() => { 
         setPostagem({
             ...postagem,
-            tema: temas
+            tema: tema
         })
     }, [tema])
 
@@ -81,7 +81,7 @@ function CadastroPost() {
         setPostagem({
             ...postagem,
             [e.target.name]: e.target.value,
-            tema: temas
+            tema: tema
         })
 
     }
@@ -90,7 +90,7 @@ function CadastroPost() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put(`/postagens`, postagem, setPostagem, {
+            put(`/postagem`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
@@ -106,7 +106,7 @@ function CadastroPost() {
                 progress: undefined
             });
         } else {
-            post(`/postagens`, postagem, setPostagem, {
+            post(`/postagem`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
@@ -127,7 +127,7 @@ function CadastroPost() {
     }
 
     function back() {
-        history.push('/posts')
+        history.push('/postagem')
     }
 
     return (
@@ -145,14 +145,14 @@ function CadastroPost() {
                     </InputLabel>
                     <Select labelId='demo-simple-select-helper-label' 
                     id='demo-simple-select-helper'
-                    onChange={(e) => buscaId(`/tema/${e.target.value}`, setTemas, {
+                    onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
                         headers: {
                             'Authorization': token
                         }
                     })}>
                         {
-                            tema.map(temas => (
-                                <MenuItem value={temas.id}>{temas.descricao}</MenuItem>
+                            temas.map(tema => ( // talvez seja necessario mudar o 'temas.map'
+                                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
                             ))
                         }
 

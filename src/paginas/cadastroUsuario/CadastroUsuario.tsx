@@ -57,7 +57,7 @@ function CadastroUsuario() {
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             theme: 'colored',
             progress: undefined
@@ -68,7 +68,7 @@ function CadastroUsuario() {
                 autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true,
+                pauseOnHover: false,
                 draggable: false,
                 theme: 'colored',
                 progress: undefined

@@ -56,10 +56,10 @@ function App() {
           <Route exact path='/formularioTema/:id'>
             <CadastroTema />
           </Route>
-          <Route path='/deletarPostagem/:id'>
+          <Route exact path='/deletarPostagem/:id'>
             <DeletarPostagem />
           </Route>
-          <Route path='/deletarTema/:id'>
+          <Route exact path='/deletarTema/:id'>
             <DeletarTema />
           </Route>
 

@@ -50,7 +50,7 @@ function CadastroUsuario() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if(confirmarSenha == user.senha && user.senha.length >= 8){
+        if(confirmarSenha === user.senha && user.senha.length >= 8){
         cadastroUsuario(`/usuario/cadastrar`, user, setUserResult)
         toast.success('Usuário cadastrado com sucesso. Agora, faça login para continuar', {
             position: 'top-left',

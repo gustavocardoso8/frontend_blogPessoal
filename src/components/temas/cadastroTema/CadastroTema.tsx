@@ -41,7 +41,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`tema/${id}`, setTema, {
+        buscaId(`/tema/${id}`, setTema, {
             headers: {
                 'Authorization': token
             }
